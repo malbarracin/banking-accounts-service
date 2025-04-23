@@ -1,0 +1,469 @@
+{
+  "info": {
+    "_postman_id": "b5e7a8f1-3c2d-4e5f-a6b7-c8d9e0f1a2b3",
+    "name": "Banking Accounts Service",
+    "description": "API collection for the Banking Accounts Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Create Account",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accountNumber\": \"1234567890\",\n    \"accountType\": \"SAVINGS\",\n    \"balance\": 1000.00,\n    \"currency\": \"USD\",\n    \"userId\": \"user123\",\n    \"userDni\": \"12345678\",\n    \"userPhoneNumber\": \"+1234567890\",\n    \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            },
+            "description": "Creates a new bank account"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Account by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}"
+              ]
+            },
+            "description": "Retrieves an account by its ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Account by Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/number/{{accountNumber}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "number",
+                "{{accountNumber}}"
+              ]
+            },
+            "description": "Retrieves an account by its account number"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Accounts by User ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/user/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "user",
+                "{{userId}}"
+              ]
+            },
+            "description": "Retrieves all accounts belonging to a specific user"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Accounts by User DNI",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/user/dni/{{userDni}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "user",
+                "dni",
+                "{{userDni}}"
+              ]
+            },
+            "description": "Retrieves all accounts belonging to a user with the specified DNI"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Accounts by User Phone Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/user/phone/{{userPhoneNumber}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "user",
+                "phone",
+                "{{userPhoneNumber}}"
+              ]
+            },
+            "description": "Retrieves all accounts belonging to a user with the specified phone number"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Info, Accounts and Transactions by Phone Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/user/phone/{{userPhoneNumber}}/complete?limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "user",
+                "phone",
+                "{{userPhoneNumber}}",
+                "complete"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of transactions to return per account"
+                }
+              ]
+            },
+            "description": "Retrieves user information, all accounts and their transactions by the user's phone number"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Accounts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            },
+            "description": "Retrieves all accounts in the system"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Account",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accountNumber\": \"1234567890\",\n    \"accountType\": \"SAVINGS\",\n    \"balance\": 1500.00,\n    \"currency\": \"USD\",\n    \"userId\": \"user123\",\n    \"userDni\": \"12345678\",\n    \"userPhoneNumber\": \"+1234567890\",\n    \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}"
+              ]
+            },
+            "description": "Updates an existing account"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}"
+              ]
+            },
+            "description": "Deletes an account by its ID"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Create Transaction (Deposit)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accountId\": \"{{accountId}}\",\n    \"type\": \"DEPOSIT\",\n    \"amount\": 500.00,\n    \"description\": \"Salary deposit\",\n    \"reference\": \"DEP123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transactions"
+              ]
+            },
+            "description": "Creates a new deposit transaction"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Transaction (Withdrawal)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accountId\": \"{{accountId}}\",\n    \"type\": \"WITHDRAWAL\",\n    \"amount\": 200.00,\n    \"description\": \"ATM withdrawal\",\n    \"reference\": \"WIT123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transactions"
+              ]
+            },
+            "description": "Creates a new withdrawal transaction"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Transaction (Transfer)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accountId\": \"{{accountId}}\",\n    \"type\": \"TRANSFER\",\n    \"amount\": 300.00,\n    \"description\": \"Transfer to John\",\n    \"reference\": \"TRF123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transactions"
+              ]
+            },
+            "description": "Creates a new transfer transaction"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transaction by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transactions/{{transactionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transactions",
+                "{{transactionId}}"
+              ]
+            },
+            "description": "Retrieves a transaction by its ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transactions by Account ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transactions/account/{{accountId}}?limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transactions",
+                "account",
+                "{{accountId}}"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of transactions to return"
+                }
+              ]
+            },
+            "description": "Retrieves the latest transactions for an account"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082/banking-accounts-service",
+      "type": "string",
+      "description": "Base URL for the Accounts Service"
+    },
+    {
+      "key": "accountId",
+      "value": "",
+      "type": "string",
+      "description": "ID of an account"
+    },
+    {
+      "key": "accountNumber",
+      "value": "1234567890",
+      "type": "string",
+      "description": "Account number for testing"
+    },
+    {
+      "key": "userId",
+      "value": "user123",
+      "type": "string",
+      "description": "User ID for testing"
+    },
+    {
+      "key": "userDni",
+      "value": "12345678",
+      "type": "string",
+      "description": "User DNI for testing"
+    },
+    {
+      "key": "userPhoneNumber",
+      "value": "+1234567890",
+      "type": "string",
+      "description": "User phone number for testing"
+    },
+    {
+      "key": "transactionId",
+      "value": "",
+      "type": "string",
+      "description": "ID of a transaction"
+    },
+    {
+      "key": "accountStatus",
+      "value": "ACTIVE",
+      "type": "string",
+      "description": "Account status for testing (ACTIVE, INACTIVE, CLOSED, BLOCKED)"
+    }
+  ]
+}

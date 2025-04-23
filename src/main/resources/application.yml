@@ -1,0 +1,31 @@
+springdoc:
+  swagger-ui:
+    path: ${BASE_PATH_ACCOUNTS:/swagger-ui.html}
+  api-docs:
+    path: ${BASE_PATH_ACCOUNTS:/v3/api-docs}
+
+server:
+  port: ${SERVER_PORT_ACCOUNTS:8082}
+
+spring:
+  application:
+    name: ${APPLICATION_ACCOUNTS_NAME:banking-accounts-service}
+  data:
+    mongodb:
+      host: ${MONGODB_HOST:localhost}
+      port: ${MONGODB_PORT:27017}
+      database: ${MONGODB_DATABASE:banking_chanel}
+      username: ${MONGODB_USERNAME:admin}
+      password: ${MONGODB_PASSWORD:admin}
+      authentication-database: ${MONGODB_AUTH_DATABASE:admin}
+      auto-index-creation: ${MONGODB_AUTO_INDEX:true}
+  webflux:
+    base-path: ${BASE_PATH_ACCOUNTS:/banking-accounts-service}
+
+logging:
+  level:
+    io.banking.whatsapp: ${LOG_LEVEL_APP:DEBUG}
+    org.springframework.data.mongodb: ${LOG_LEVEL_MONGODB:DEBUG}
+    org.springframework.web: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
